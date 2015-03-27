@@ -22,7 +22,7 @@ ALTER TABLE Tag ADD CONSTRAINT PK_Tag PRIMARY KEY (Stichwort);
 CREATE TABLE verbunden(
 	titel VARCHAR(255),
 	stichwort VARCHAR(255),
-	PRIMARY KEY(title,stichwort),
+	PRIMARY KEY(titel,stichwort),
 	FOREIGN KEY(titel) REFERENCES Beitrag(titel)
 		ON UPDATE CASCADE ON DELETE CASCADE,
 	FOREIGN KEY(stichwort) REFERENCES Tag(stichwort)

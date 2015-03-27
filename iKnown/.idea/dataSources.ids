@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - iKnown@localhost" uuid="06d83721-8c39-4b2f-b8ea-cd170b900b73">
+    <database-info product="MySQL" version="5.5.42-1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="iKnown"/>
+    <table name="BEITRAG_TAG" schema="" catalog="iKnown" type="TABLE">
+      <column name="T_STICHWORT" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="B_TITEL" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <foreign-key name="FK_h24yaun2beph0jgov5diq1td3" columns="T_STICHWORT" ref-table="Tag" ref-schema="" ref-catalog="iKnown" ref-columns="stichwort" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_2o8s0acqln7cfceiin7rj0p4f" columns="B_TITEL" ref-table="Beitrag" ref-schema="" ref-catalog="iKnown" ref-columns="titel" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_2o8s0acqln7cfceiin7rj0p4f" unique="false" columns="B_TITEL"/>
+      <index name="FK_h24yaun2beph0jgov5diq1td3" unique="false" columns="T_STICHWORT"/>
+    </table>
+    <table name="Beitrag" schema="" catalog="iKnown" type="TABLE">
+      <column name="titel" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="inhalt" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="titel"/>
+      <exported-key name="FK_2o8s0acqln7cfceiin7rj0p4f" table="BEITRAG_TAG" schema="" catalog="iKnown" columns="B_TITEL"/>
+    </table>
+    <table name="Tag" schema="" catalog="iKnown" type="TABLE">
+      <column name="stichwort" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="stichwort"/>
+      <exported-key name="FK_h24yaun2beph0jgov5diq1td3" table="BEITRAG_TAG" schema="" catalog="iKnown" columns="T_STICHWORT"/>
+    </table>
+  </data-source>
+</component>
